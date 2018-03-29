@@ -9,6 +9,8 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <title></title>
   </head>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="CSS.css">
   <body>
     <?php
     
