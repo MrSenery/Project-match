@@ -1,3 +1,6 @@
 body {
     background-color: #343838;
 }
+ .test {
+   display: inline-block;
+ }
