@@ -1,3 +1,42 @@
 body {
-    background-color: #343838;
+    background-color: #262E2E;
+}
+
+.Header {
+    background-color: #2B4A4A;
+    height: 100px;
+}
+
+.Header > a {
+    color: #0C8282;
+    text-align: right;
+    margin-right: 10px;
+    display: block;
+}
+
+.Header > h1 {
+    color: #0C8282;
+    text-align: center;
+}
+
+.Header > a:hover {
+    color: #00A3A3;
+    text-decoration: none;
+}
+
+.Navigation {
+/*    background-color: #00A3A3;*/
+background: linear-gradient(#00A3A3, #0C8282, #00A3A3);
+}
+
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
 }
