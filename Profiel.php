@@ -1,3 +1,4 @@
+<?php include("HeaderNav.php"); ?>
 <?php
     session_start();
     //Log in check als false redirect naar index.php
