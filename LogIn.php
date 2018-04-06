@@ -33,7 +33,7 @@
         #containerLogIn {
             position: fixed;
             width: 340px;
-            height: 280px;
+            height: 320px;
             top: 50%;
             left: 50%;
             margin-top: -140px;
@@ -80,7 +80,44 @@
             margin-left: 3px;
             font-size: 11px;
         }
+        .row {
+            text-align:center;
+            padding: 5% 0 0;
+            margin: auto;
+            font-size: 20px;
+            text-decoration-line: none;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+        a:visited {
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            cursor: pointer;           
+        }
+        .loginlink {
+            float: left;
+            margin: auto;
+        }
+        .registerlink{
+            float: right;
+            margin: auto;
+        }
         input[type=submit] {
+            float: right;
+            margin-right: 20px;
+            margin-top: 20px;
+            width: 80px;
+            height: 30px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        input[type=submitSignUp] {
             float: right;
             margin-right: 20px;
             margin-top: 20px;
@@ -100,7 +137,14 @@
             <!-- Bootstrap -->
             <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
         </head>
-            <div id="containerLogIn">       
+            <div id="containerLogIn">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="#" class="active" id="loginlink">Inloggen</a>
+                                <a href="#" id="registerlink">Registreren</a>
+                            </div>
+                    </div>
                 <form>
                     <label for="username">Gebruikersnaam:</label>
                         <input type="text" id="username" name="username">
@@ -108,7 +152,7 @@
                                 <input type="password" id="password" name="password">
                         <div id="lower">
                             <input type="checkbox"><label for="checkbox">Hou mij ingelogd</label>
-                                <input type="submit" value="Login">
+                                <input type="submit" value="Login">                         
                                     <a href="#" id="forgotpassword">Wachtwoord vergeten?</a>
                         </div><!--/ lower-->
                 </form>
