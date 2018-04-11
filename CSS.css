@@ -7,19 +7,19 @@ body {
     height: 100px;
 }
 
-.Header > a {
+.Header > div > div > a {
     color: #0C8282;
     text-align: right;
     margin-right: 10px;
     display: block;
 }
 
-.Header > h1 {
+.Header > div > h1 {
     color: #0C8282;
     text-align: center;
 }
 
-.Header > a:hover {
+.Header > div > div > a:hover {
     color: #00A3A3;
     text-decoration: none;
 }
