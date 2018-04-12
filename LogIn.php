@@ -1,9 +1,10 @@
 <!DOCTYPE HTML>
 <?php
     session_start();
-    
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL|E_STRICT);
     //SQL database connectie
-    
+    include 'connection.php';
     //Gebruikersnaam en Wachtwoord uit database ophalen
     $gebruikersnaam = "gebruiker";
     $wachtwoord = "wachtwoord";
@@ -28,17 +29,17 @@
         html, body {
             font-family: "Helvetica Neue", Helvetica, sans-serif;
             color: #444;
-            background-color: #343838;
+            background-color: #262E2E;
         }
         #containerLogIn {
             position: fixed;
             width: 340px;
-            height: 320px;
+            height: 319px;
             top: 50%;
             left: 50%;
             margin-top: -140px;
             margin-left: -170px;
-            background: #fff;
+            background: #93C0C0;
             border-radius: 3px;
             border: 1px solid #ccc;
         }
@@ -63,10 +64,11 @@
             border: 1px solid #c7d0d2;
 	}
         #lower {
-            background: #ecf2f5;
+            background: #0C8282;
             width: 100%;
             height: 80px;
             margin-top: 20px;
+            border-color: #0C8282;
             border-top: 1px solid #ccc;
             border-bottom-right-radius: 3px;
             border-bottom-left-radius: 3px;
@@ -142,7 +144,7 @@
                     <div class="row">
                         <div class="col-xs-6">
                             <a href="#" class="active" id="loginlink">Inloggen</a>
-                                <a href="#" id="registerlink">Registreren</a>
+                                 <a href="#" id="registerlink">Registreren</a>
                             </div>
                     </div>
                 <form>
