@@ -4,8 +4,16 @@
 ?>
 <div class="Header" name="Header">
 <!--    fix hoverover-->
-    <a href="Login.php">Logout</a>
-    <h1>Match Maker</h1>
+<div class="row">
+    <div class="col-sm-10">
+    </div>
+    <div class="col-sm-2">
+        <a href="Login.php">Logout</a>
+    </div>
+</div>
+    <div class="col-sm-12">
+        <h1>Match Maker</h1>
+    </div>
 </div>
 <div class="Navigation">
 <nav class="navbar navbar-expand-sm navbar-dark">

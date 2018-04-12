@@ -10,10 +10,10 @@
   <body>
     <!-- Dit is voor het grote van het bedrijf-->
     <form action="">
-    <div class="col-11" style="float: none; display: block; margin: 0 auto;">
+    <div class="col-12" style="float: none; display: block; margin: 0 auto;">
     <div class="row">
-      <div class="col-sm-4" style="background-color:#BCD9D9;">Hoe groot wil de cursist het bedrijf hebben?</div>
-      <div class="col-sm-5" style="background-color:#93C0C0;">
+      <div class="col-sm-3" style="background-color:#93C0C0;">Hoe groot wil de cursist het bedrijf hebben?</div>
+      <div class="col-sm-7" style="background-color:#93C0C0;">
           <div class="row">
             <div class="col-sm-2" style="margin-right: 2%;">
                 <label>Klein</label><br>
@@ -29,8 +29,8 @@
             </div>
           </div>
       </div>
-      <div class="col-sm-3" style="background-color:#BCD9D9;"><br>
-        <select required name="isBelangrijk">
+      <div class="col-sm-2" style="background-color:#93C0C0;"><br>
+          <select required name="isBelangrijk" style="width: 90%">
           <option type="text" value="">-</option>
           <option type="text" value="Belangrijk">Belangrijk</option>
           <option type="text" value="Niet belangrijk">Niet belangrijk</option>
@@ -39,10 +39,10 @@
     </div>
     </div>
     <!-- Dit is voor hoeveel uitdagingen de student wil hebben in het samewerking-->
-    <div class="col-11" style="float: none; display: block; margin: 0 auto;">
+    <div class="col-12" style="float: none; display: block; margin: 0 auto;">
     <div class="row">
-      <div class="col-sm-4" style="background-color:#BCD9D9;">Hoeveel uitdaging wil de cursist in zijn werkzaamheden?</div>
-      <div class="col-sm-5" style="background-color:#93C0C0;">
+      <div class="col-sm-3" style="background-color:#BCD9D9;">Hoeveel uitdaging wil de cursist in zijn werkzaamheden?</div>
+      <div class="col-sm-7" style="background-color:#BCD9D9;">
           <div class="row">
             <div class="col-sm-2" style="margin-right: 2%">
                 <label>Zeer&nbsp;weinig</label><br>
@@ -66,8 +66,8 @@
             </div>
           </div>
       </div>
-      <div class="col-sm-3" style="background-color:#BCD9D9;"><br>
-        <select required name="isBelangrijk">
+      <div class="col-sm-2" style="background-color:#BCD9D9;"><br>
+        <select required name="isBelangrijk" style="width: 90%">
           <option type="text" value="">-</option>
           <option type="text" value="Belangrijk">Belangrijk</option>
           <option type="text" value="Niet belangrijk">Niet belangrijk</option>
@@ -77,10 +77,10 @@
     </div>
 
     <!-- Hoe zelfstandig kan de student werken -->
-    <div class="col-11" style="float: none; display: block; margin: 0 auto;">
+    <div class="col-12" style="float: none; display: block; margin: 0 auto;">
     <div class="row">
-      <div class="col-sm-4" style="background-color:#BCD9D9;">Hoe zelfstandig kan de cursist werken?</div>
-      <div class="col-sm-5" style="background-color:#93C0C0;">
+      <div class="col-sm-3" style="background-color:#93C0C0;">Hoe zelfstandig kan de cursist werken?</div>
+      <div class="col-sm-7" style="background-color:#93C0C0;">
           <div class="row">
             <div class="col-sm-2" style="margin-right: 2%">
                 <label>Slecht</label><br>
@@ -96,8 +96,8 @@
             </div>
           </div>
       </div>
-      <div class="col-sm-3" style="background-color:#BCD9D9;"><br>
-        <select required name="isBelangrijk">
+      <div class="col-sm-2" style="background-color:#93C0C0;"><br>
+        <select required name="isBelangrijk" style="width: 90%">
           <option type="text" value="">-</option>
           <option type="text" value="Belangrijk">Belangrijk</option>
           <option type="text" value="Niet belangrijk">Niet belangrijk</option>
@@ -107,10 +107,10 @@
     </div>
 
     <!-- Profiel 2 informatie -->
-    <div class="col-11" style="float: none; display: block; margin: 0 auto;">
+    <div class="col-12" style="float: none; display: block; margin: 0 auto;">
     <div class="row">
-      <div class="col-sm-4" style="background-color:#BCD9D9;">Hoe geschikt moet het bedrijf zijn voor profiel 2 cursisten?</div>
-      <div class="col-sm-5" style="background-color:#93C0C0;">
+      <div class="col-sm-3" style="background-color:#BCD9D9;">Hoe geschikt moet het bedrijf zijn voor profiel 2 cursisten?</div>
+      <div class="col-sm-7" style="background-color:#BCD9D9;">
           <div class="row">
             <div class="col-sm-2" style="margin-right: 2%">
                 <label>N.v.t</label><br>
@@ -126,8 +126,8 @@
             </div>
           </div>
       </div>
-      <div class="col-sm-3" style="background-color:#BCD9D9;"><br>
-        <select required name="isBelangrijk">
+      <div class="col-sm-2" style="background-color:#BCD9D9;"><br>
+        <select required name="isBelangrijk" style="width: 90%">
           <option type="text" value="">-</option>
           <option type="text" value="Belangrijk">Belangrijk</option>
           <option type="text" value="Niet belangrijk">Niet belangrijk</option>
@@ -137,10 +137,10 @@
     </div>
 
     <!-- Hoe goed de student kan omgaan met klanten-->
-    <div class="col-11" style="float: none; display: block; margin: 0 auto;">
+    <div class="col-12" style="float: none; display: block; margin: 0 auto;">
     <div class="row">
-      <div class="col-sm-4" style="background-color:#BCD9D9;">Hoe goed kan de cursist met klanten omgaan?</div>
-      <div class="col-sm-5" style="background-color:#93C0C0;">
+      <div class="col-sm-3" style="background-color:#93C0C0;">Hoe goed kan de cursist met klanten omgaan?</div>
+      <div class="col-sm-7" style="background-color:#93C0C0;">
           <div class="row">
             <div class="col-sm-2" style="margin-right: 2%">
                 <label>Slecht</label><br>
@@ -164,8 +164,8 @@
             </div>
           </div>
       </div>
-      <div class="col-sm-3" style="background-color:#BCD9D9;"><br>
-        <select required name="isBelangrijk">
+      <div class="col-sm-2" style="background-color:#93C0C0;"><br>
+        <select required name="isBelangrijk" style="width: 90%">
           <option type="text" value="">-</option>
           <option type="text" value="Belangrijk">Belangrijk</option>
           <option type="text" value="Niet belangrijk">Niet belangrijk</option>
