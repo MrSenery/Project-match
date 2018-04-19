@@ -75,7 +75,6 @@
       </div>
     </div>
     </div>
-
     <!-- Hoe zelfstandig kan de student werken -->
     <div class="col-12" style="float: none; display: block; margin: 0 auto;">
     <div class="row">
@@ -105,7 +104,6 @@
       </div>
     </div>
     </div>
-
     <!-- Profiel 2 informatie -->
     <div class="col-12" style="float: none; display: block; margin: 0 auto;">
     <div class="row">
@@ -114,10 +112,6 @@
           <div class="row">
             <div class="col-sm-2" style="margin-right: 2%">
                 <label>N.v.t</label><br>
-                <input type="radio" name="Profiel2">
-            </div>
-            <div class="col-sm-2" style="margin-right: 2%">
-                <label>Matig</label><br>
                 <input type="radio" name="Profiel2">
             </div>
             <div class="col-sm-2" style="margin-right: 2%">
@@ -135,13 +129,16 @@
       </div>
     </div>
     </div>
-
     <!-- Hoe goed de student kan omgaan met klanten-->
     <div class="col-12" style="float: none; display: block; margin: 0 auto;">
     <div class="row">
       <div class="col-sm-3" style="background-color:#93C0C0;">Hoe goed kan de cursist met klanten omgaan?</div>
       <div class="col-sm-7" style="background-color:#93C0C0;">
           <div class="row">
+            <div class="col-sm-2" style="margin-right: 2%">
+                <label>N.V.T.</label><br>
+                <input type="radio" name="Klantenomgang">
+            </div>
             <div class="col-sm-2" style="margin-right: 2%">
                 <label>Slecht</label><br>
                 <input type="radio" name="Klantenomgang">
@@ -158,10 +155,6 @@
                 <label>Goed</label><br>
                 <input type="radio" name="Klantenomgang">
             </div>
-            <div class="col-sm-2" style="margin-right: 2%">
-                <label>Zeer&nbsp;goed</label><br>
-                <input type="radio" name="Klantenomgang">
-            </div>
           </div>
       </div>
       <div class="col-sm-2" style="background-color:#93C0C0;"><br>
@@ -174,5 +167,6 @@
     </div>
     </div>
     </form>
+    <!-- Top # van bedrijven-->
   </body>
 </html>
