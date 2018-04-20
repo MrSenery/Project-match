@@ -1,6 +1,10 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="CSS.css" rel="stylesheet">
 <?php
+$host = "localhost";
+$username = "root";
+$password = "";
+$db_name = "matchmakers";
 ?>
 <div class="Header" name="Header">
 <!--    fix hoverover-->
