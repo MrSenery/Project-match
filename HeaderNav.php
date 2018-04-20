@@ -22,7 +22,7 @@
       <a class="nav-link" href="index.php">Leerling-Match</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="Profiel.php">Bedrijven</a>
+      <a class="nav-link" href="BedrijfInvoer.php">Bedrijven</a>
     </li>
   </ul>
 </nav>
