@@ -164,7 +164,7 @@
         </div>
       </div>
       </div>
-      <input type="submit" name="match-go" value="Match-go"/>
+      <input type="submit" id="Match-go" name="match-go" value="Match-go"/>
     </form>
     <!-- Top # van bedrijven-->
   <div style="color: white;">
