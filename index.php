@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title></title>
   </head>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="CSS.css" rel="stylesheet">
   <body>
     <!-- Dit is voor het grote van het bedrijf-->
     <form action="index.php" method="post">

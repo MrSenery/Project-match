@@ -1,5 +1,6 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="CSS.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <?php
 $host = "localhost";
 $username = "root";
@@ -7,7 +8,6 @@ $password = "";
 $db_name = "matchmakers";
 ?>
 <div class="Header" name="Header">
-<!--    fix hoverover-->
 <div class="row">
     <div class="col-sm-10">
     </div>
