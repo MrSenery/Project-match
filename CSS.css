@@ -53,9 +53,26 @@ body {
     background-color: #0C8282;
     border-color: #00A3A3;
     color: #E2FBFB;
+    float: none;
+    margin: 0 auto;
+    display: block;
 }
 
 #Match-go:active {
     background-color: #00A3A3;
     border-color: #0C8282;
+}
+
+#RadioDiv {
+    margin-right: 2%;
+}
+
+#DarkCol {
+    /*    Colours only*/
+    background-color:#93C0C0;
+}
+
+#LightCol {
+    /*    Colours only*/
+    background-color:#BCD9D9;
 }

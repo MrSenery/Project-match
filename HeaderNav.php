@@ -15,14 +15,14 @@ $db_name = "matchmakers";
     </div>
 </div>
 <div class="Navigation">
-<nav class="navbar navbar-expand-sm navbar-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="index.php">Leerling-Match</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="BedrijfInvoer.php">Bedrijven</a>
-    </li>
-  </ul>
-</nav>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Leerling-Match</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="BedrijfInvoer.php">Bedrijven</a>
+            </li>
+        </ul>
+    </nav>
 </div>
