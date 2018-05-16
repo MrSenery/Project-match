@@ -7,26 +7,34 @@ body {
     height: 100px;
 }
 
-.Header > div > div > a {
-    color: #0C8282;
-    text-align: right;
+#Logout {
+    float: right;
+    border: none;
+    background-color: #2B4A4A;
+    color: #00A3A3;
     margin-right: 10px;
     display: block;
 }
 
-.Header > div > h1 {
-    color: #0C8282;
-    text-align: center;
-}
-
-.Header > div > div > a:hover {
-    color: #00A3A3;
+#Logout:active {
+    color: #E2FBFB;
     text-decoration: none;
 }
 
+#ProjectName {
+    border: none;
+    color: #00A3A3;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
 .Navigation {
-/*    background-color: #00A3A3;*/
-background: linear-gradient(#00A3A3, #0C8282, #00A3A3);
+    background: linear-gradient(#00A3A3, #0C8282);
 }
 
 .navbar-nav {
@@ -39,4 +47,32 @@ background: linear-gradient(#00A3A3, #0C8282, #00A3A3);
 .navbar-nav > li {
     display: inline-block;
     float:none;
+}
+
+#Match-go {
+    background-color: #0C8282;
+    border-color: #00A3A3;
+    color: #E2FBFB;
+    float: none;
+    margin: 0 auto;
+    display: block;
+}
+
+#Match-go:active {
+    background-color: #00A3A3;
+    border-color: #0C8282;
+}
+
+#RadioDiv {
+    margin-right: 2%;
+}
+
+#DarkCol {
+    /*    Colours only*/
+    background-color:#93C0C0;
+}
+
+#LightCol {
+    /*    Colours only*/
+    background-color:#BCD9D9;
 }
