@@ -76,3 +76,10 @@ body {
     /*    Colours only*/
     background-color:#BCD9D9;
 }
+
+#LightColInfoBox {
+          max-width: 1200px;
+          margin: auto;
+          padding: 10px;
+          background-color:#BCD9D9;
+}
