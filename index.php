@@ -10,6 +10,21 @@
         <form action="index.php" method="post">
             <div class="col-12" style="float: none; display: block; margin: 0 auto;">
                 <div class="row">
+                    <div class="col-sm-10" id="LightCol">Welke leerrichting volgt de cursist?</div>
+                    <div class="col-sm-2" id="LightCol"><br>
+                        <select required name="leerRichtingOptie" style="width: 90%; margin-bottom: 6px;">
+                            <option type="text" value="">-</option>
+                            <option type="text" value="1">Bouw</option>
+                            <option type="text" value="2">ICT</option>
+                            <option type="text" value="3">Kapster</option>
+                            <option type="text" value="4">Lab</option>
+                            <option type="text" value="5">Techniek</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="float: none; display: block; margin: 0 auto;">
+                <div class="row">
                     <div class="col-sm-3" id="DarkCol">Hoe groot wil de cursist het bedrijf hebben?</div>
                     <div class="col-sm-7" id="DarkCol">
                         <div class="row">
@@ -169,6 +184,7 @@
             </div>
         </form>
         <!-- Top # van bedrijven-->
+<!--        nog aanpassing voor het orderen op leerrichting-->
         <div>
             <?php
             $con = mysqli_connect($host, $username, $password, $db_name);
@@ -271,8 +287,55 @@
                     }
                     $resultArray[$row[1]] = $result;
                 }
+                // Uitkomsten van bedrijven, met gekleurde %
                 arsort($resultArray);
                 foreach ($resultArray as $key => $val) {
+//                    (key) Klikbaar maken voor naar Profiel te gaan
+                    if ($val >= 0 && $val <= 25) {
+                    echo '<div class="col-12" style="background-color: #BCD9D9;">
+                          <div class="row" style="border-bottom-style: solid;">
+                            <div class="col-11">
+                                <h5>' . $key . '</h5>
+                            </div>
+                            <div class="col-1">
+                                <h3 style="color: #D92A13">' . $val . '%</h3>
+                            </div>
+                          </div>
+                          </div>';
+                } else if ($val >= 26 && $val <= 50) {
+                    echo '<div class="col-12" style="background-color: #BCD9D9;">
+                          <div class="row" style="border-bottom-style: solid;">
+                            <div class="col-11">
+                                <h5>' . $key . '</h5>
+                            </div>
+                            <div class="col-1">
+                                <h3 style="color: #D99713">' . $val . '%</h3>
+                            </div>
+                          </div>
+                          </div>';
+                } else if ($val >= 51 && $val <= 75) {
+                    echo '<div class="col-12" style="background-color: #BCD9D9;">
+                          <div class="row" style="border-bottom-style: solid;">
+                            <div class="col-11">
+                                <h5>' . $key . '</h5>
+                            </div>
+                            <div class="col-1">
+                                <h3 style="color: #D9CE13">' . $val . '%</h3>
+                            </div>
+                          </div>
+                          </div>';
+                } else if ($val >= 76 && $val <= 100) {
+                    echo '<div class="col-12" style="background-color: #BCD9D9;">
+                          <div class="row" style="border-bottom-style: solid;">
+                            <div class="col-11">
+                                <h5>' . $key . '</h5>
+                            </div>
+                            <div class="col-1">
+                                <h3 style="color: #10AD10">' . $val . '%</h3>
+                            </div>
+                          </div>
+                          </div>';
+                } else {
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
@@ -283,6 +346,7 @@
                             </div>
                           </div>
                           </div>';
+                }
                 }
                 // Free result set
                 mysqli_free_result($queryResult);
