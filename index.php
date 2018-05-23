@@ -296,7 +296,9 @@ session_start();
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                                <form method="POST" action="Bedrijf.php">
+                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                </form>';
                     echo   '</div>
                             <div class="col-1">
                                 <h3 style="color: #D92A13">' . $val . '%</h3>
@@ -307,7 +309,9 @@ session_start();
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                                <form method="POST" action="Bedrijf.php">
+                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                </form>';
                     echo   '</div>
                             <div class="col-1">
                                 <h3 style="color: #D99713">' . $val . '%</h3>
@@ -318,7 +322,9 @@ session_start();
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                                <form method="POST" action="Bedrijf.php">
+                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                </form>';
                     echo   '</div>
                             <div class="col-1">
                                 <h3 style="color: #D9CE13">' . $val . '%</h3>
@@ -329,7 +335,9 @@ session_start();
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                                <form method="POST" action="Bedrijf.php">
+                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                </form>';
                     echo   '</div>
                             <div class="col-1">
                                 <h3 style="color: #10AD10">' . $val . '%</h3>
@@ -340,7 +348,9 @@ session_start();
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                                <form method="POST" action="Bedrijf.php">
+                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                </form>';
                     echo   '</div>
                             <div class="col-1">
                                 <h3>' . $val . '%</h3>
