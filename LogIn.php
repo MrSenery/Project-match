@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <?php
     session_start();
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL|E_STRICT);
+    //ini_set('display_errors', 1);
+    //error_reporting(E_ALL|E_STRICT);
+    
     //SQL database connectie
     include 'connection.php';
     //Gebruikersnaam en Wachtwoord uit database ophalen
@@ -39,7 +40,7 @@
             left: 50%;
             margin-top: -140px;
             margin-left: -170px;
-            background: #93C0C0;
+            background: #FFF;
             border-radius: 3px;
             border: 1px solid #ccc;
         }
@@ -64,11 +65,10 @@
             border: 1px solid #c7d0d2;
 	}
         #lower {
-            background: #0C8282;
+            background: #FFF;
             width: 100%;
             height: 80px;
             margin-top: 20px;
-            border-color: #0C8282;
             border-top: 1px solid #ccc;
             border-bottom-right-radius: 3px;
             border-bottom-left-radius: 3px;
