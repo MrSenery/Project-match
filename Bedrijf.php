@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php include("HeaderNav.php"); ?>
+<?php include("HeaderNav.php"); 
+session_start();
+?>
 <html>
   <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
@@ -15,6 +17,9 @@
       }
   </style>
   <body>
+      
+      <a id="test" style="background-color: white;"><?php echo 'Test<br>' . $_SESSION["bedrijfInfoKey"]; ?></a>
+      
         <div class="col-sm-8" id="LightCol" height="500px"><br>
             <h1>Novacollege</h1>
             <p></p>

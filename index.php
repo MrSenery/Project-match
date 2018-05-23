@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php include("HeaderNav.php"); ?>
+<?php include("HeaderNav.php"); 
+session_start();
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -12,7 +14,7 @@
                 <div class="row">
                     <div class="col-sm-10" id="LightCol">Welke leerrichting volgt de cursist?</div>
                     <div class="col-sm-2" id="LightCol"><br>
-                        <select required name="leerRichtingOptie" style="width: 90%; margin-bottom: 6px;">
+                        <select name="leerRichtingOptie" style="width: 90%; margin-bottom: 6px;">
                             <option type="text" value="">-</option>
                             <option type="text" value="1">Bouw</option>
                             <option type="text" value="2">ICT</option>
@@ -290,13 +292,12 @@
                 // Uitkomsten van bedrijven, met gekleurde %
                 arsort($resultArray);
                 foreach ($resultArray as $key => $val) {
-//                    (key) Klikbaar maken voor naar Profiel te gaan
                     if ($val >= 0 && $val <= 25) {
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <h5>' . $key . '</h5>
-                            </div>
+                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                    echo   '</div>
                             <div class="col-1">
                                 <h3 style="color: #D92A13">' . $val . '%</h3>
                             </div>
@@ -306,8 +307,8 @@
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <h5>' . $key . '</h5>
-                            </div>
+                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                    echo   '</div>
                             <div class="col-1">
                                 <h3 style="color: #D99713">' . $val . '%</h3>
                             </div>
@@ -317,8 +318,8 @@
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <h5>' . $key . '</h5>
-                            </div>
+                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                    echo   '</div>
                             <div class="col-1">
                                 <h3 style="color: #D9CE13">' . $val . '%</h3>
                             </div>
@@ -328,8 +329,8 @@
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <h5>' . $key . '</h5>
-                            </div>
+                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                    echo   '</div>
                             <div class="col-1">
                                 <h3 style="color: #10AD10">' . $val . '%</h3>
                             </div>
@@ -339,8 +340,8 @@
                     echo '<div class="col-12" style="background-color: #BCD9D9;">
                           <div class="row" style="border-bottom-style: solid;">
                             <div class="col-11">
-                                <h5>' . $key . '</h5>
-                            </div>
+                                <a href="bedrijf.php" style="text-decoration: none; color: black;"><h5>' . $_SESSION["bedrijfInfoKey"] = $key . '</h5></a>';
+                    echo   '</div>
                             <div class="col-1">
                                 <h3>' . $val . '%</h3>
                             </div>
