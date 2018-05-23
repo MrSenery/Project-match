@@ -18,7 +18,7 @@ session_start();
   </style>
   <body>
       
-      <a id="test" style="background-color: white;"><?php echo 'Test<br>' . $_SESSION["bedrijfInfoKey"]; ?></a>
+      <a id="test" style="background-color: white;"><?php echo 'Test<br>' . $_POST["bedrijf"];; ?></a>
       
         <div class="col-sm-8" id="LightCol" height="500px"><br>
             <h1>Novacollege</h1>
