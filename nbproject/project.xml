@@ -6,6 +6,9 @@
             <name>Match_makers</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>DocentAchternaam</word>
+            <word>DocentGebruikersnaam</word>
+            <word>DocentWachtwoord</word>
             <word>middel</word>
         </spellchecker-wordlist>
     </configuration>

@@ -25,6 +25,9 @@ $db_name = "matchmakers";
             <li class="nav-item">
                 <a class="nav-link" href="BedrijfInvoer.php">Bedrijven</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Docenten.php">Docenten</a>
+            </li>
         </ul>
     </nav>
 </div>
