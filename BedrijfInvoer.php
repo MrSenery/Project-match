@@ -8,11 +8,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
   <script type="text/javascript">
-    function Edit(BedrijfId, BedrijfsNaam, BedrijfsEmail, BedrijfsInfo, AantalPersoneel, StageO, StageB, StageE, LeerRichting, Grote, Werkzaamheden, Begeleiding, BedrijfsP2, KlantenOmgang) {
+    function Edit(BedrijfId, BedrijfsNaam, BedrijfsEmail, BedrijfsInfo, BedrijfsAdres, BedrijfsTel, BedrijfsWebsite, BedrijfsContactPer, AantalPersoneel, StageO, StageB, StageE, LeerRichting, Grote, Werkzaamheden, Begeleiding, BedrijfsP2, KlantenOmgang) {
       document.getElementById("bedrijfEditId").setAttribute("value", BedrijfId);
       document.getElementById("bedrijfEditNaam").setAttribute("value", BedrijfsNaam);
       document.getElementById("bedrijfEditEmail").setAttribute("value", BedrijfsEmail);
       document.getElementById("bedrijfEditInfo").setAttribute("value", BedrijfsInfo);
+      document.getElementById("bedrijfsEditAdres").setAttribute("value", BedrijfsAdres);
+      document.getElementById("bedrijfsEditTel").setAttribute("value", BedrijfsTel);
+      document.getElementById("bedrijfsEditWebsite").setAttribute("value", BedrijfsWebsite);
+      document.getElementById("bedrijfsEditContactPer").setAttribute("value", BedrijfsContactPer);
       document.getElementById("aantalPersoneelEdit").setAttribute("value", AantalPersoneel);
 
       if(StageO == "Ja") {
@@ -75,6 +79,10 @@
               $BedrijfNaam = $_POST['bedrijfNaam'];
               $BedrijfsEmail = $_POST['bedrijfsEmail'];
               $BedrijfsInfo = $_POST['bedrijfsInfo'];
+              $BedrijfsAdres = $_POST['bedrijfsAdres'];
+              $BedrijfsTel = $_POST['bedrijfsTel'];
+              $BedrijfsWebsite = $_POST['bedrijfsWebsite'];
+              $BedrijfsContactPer = $_POST['bedrijfsContactPer'];
               $AantalPersoneel = $_POST['aantalPersoneel'];
 
               if(isset($_POST['OStage']))
@@ -106,7 +114,7 @@
               $sql = "INSERT INTO bedrijven (BedrijfsNaam, BedrijfsGrote, BedrijfsDiversiteit, BedrijfsZelfstandigheid, BedrijfsP2, BedrijfsKlantenOmgang, AantalPersoneel, StageOrienteert, StageBlok, StageEind, LeerRichting) VALUES ('$BedrijfNaam','$Grote','$Werkzaamheden','$Zelfstandigheid','$Profiel2','$Klantenomgang','$AantalPersoneel','$OStage','$BStage','$EStage','$BedrijfLeerrichting')";
               mysqli_query($con, $sql);
 
-              $sql = "INSERT INTO bedrijfsinfo(BedrijfsNaam, BedrijfsEmail, BedrijfsInfoText) VALUES ('$BedrijfNaam','$BedrijfsEmail','$BedrijfsInfo')";
+              $sql = "INSERT INTO bedrijfsinfo(BedrijfsNaam, BedrijfsEmail, BedrijfsInfoText, BedrijfsAdres, BedrijfsTel, Website, ContactPersoon) VALUES ('$BedrijfNaam','$BedrijfsEmail','$BedrijfsInfo', '$BedrijfsAdres', '$BedrijfsTel', '$BedrijfsWebsite', '$BedrijfsContactPer')";
               mysqli_query($con, $sql);
             }
 
@@ -127,6 +135,10 @@
               $BedrijfNaam = $_POST['bedrijfEditNaam'];
               $BedrijfsEmail = $_POST['bedrijfEditEmail'];
               $BedrijfsInfo = $_POST['bedrijfEditInfo'];
+              $BedrijfsAdres = $_POST['bedrijfsEditAdres'];
+              $BedrijfsTel = $_POST['bedrijfsEditTel'];
+              $BedrijfsWebsite = $_POST['bedrijfsEditWebsite'];
+              $BedrijfsContactPer = $_POST['bedrijfsEditContactPer'];
               $AantalPersoneel = $_POST['aantalPersoneelEdit'];
 
               if(isset($_POST['OStageEdit']))
@@ -158,7 +170,7 @@
               $sql = "UPDATE bedrijven SET BedrijfsNaam='$BedrijfNaam',BedrijfsGrote='$Grote',BedrijfsDiversiteit='$Werkzaamheden',BedrijfsZelfstandigheid='$Zelfstandigheid',BedrijfsP2='$Profiel2',BedrijfsKlantenOmgang='$Klantenomgang',AantalPersoneel='$AantalPersoneel',StageOrienteert='$OStage',StageBlok='$BStage',StageEind='$EStage',LeerRichting='$BedrijfLeerrichting' WHERE bedrijfsid='$BedrijfId'";
               mysqli_query($con, $sql);
 
-              $sql = "UPDATE `bedrijfsinfo` SET BedrijfsNaam='$BedrijfNaam',BedrijfsEmail='$BedrijfsEmail',BedrijfsInfoText='$BedrijfsInfo' WHERE  bedrijfsid='$BedrijfId'";
+              $sql = "UPDATE `bedrijfsinfo` SET BedrijfsNaam='$BedrijfNaam',BedrijfsEmail='$BedrijfsEmail',BedrijfsInfoText='$BedrijfsInfo',BedrijfsAdres='$BedrijfsAdres',BedrijfsTel='$BedrijfsTel',Website='$BedrijfsWebsite',ContactPersoon='$BedrijfsContactPer' WHERE  bedrijfsid='$BedrijfId'";
               mysqli_query($con, $sql);
             }
 
@@ -172,7 +184,7 @@
                     echo "<i class='fa fa-building'></i>" . " " . $row["13"]
                     . "<button style='float: right;' data-toggle='modal' data-target='#bedrijfVerwijderen' onclick='Delete(" . $row['12'] . ", \"" . $row['13'] . "\")'>"
                     . "<i class='fa fa-trash fa-sm'></i></button>"
-                    . "<button style='float: right;' data-toggle='modal' data-target='#bedrijfEdit' onclick='Edit(" . $row['0'] . ", \"" . $row['13'] . "\", \"" . $row['14'] . "\", \"" . $row['15'] . "\", " . $row['7'] . ", \"" . $row['8'] . "\", \"" . $row['9'] . "\", \"" . $row['10'] . "\", \"" . $row['11'] . "\", " . $row['2'] . ", " . $row['3'] . ", " . $row['4'] . ", " . $row['5'] . ", " . $row['6'] . ")'>"
+                    . "<button style='float: right;' data-toggle='modal' data-target='#bedrijfEdit' onclick='Edit(" . $row['0'] . ", \"" . $row['13'] . "\", \"" . $row['14'] . "\", \"" . $row['15'] . "\", \"" . $row['16'] . "\", \"" . $row['17'] . "\", \"" . $row['18'] . "\", \"" . $row['19'] . "\", " . $row['7'] . ", \"" . $row['8'] . "\", \"" . $row['9'] . "\", \"" . $row['10'] . "\", \"" . $row['11'] . "\", " . $row['2'] . ", " . $row['3'] . ", " . $row['4'] . ", " . $row['5'] . ", " . $row['6'] . ")'>"
                     . "<i class='fa fa-edit fa-sm'></i></button>" . "<br>";
 
                     echo "<i class='fa fa-envelope'></i>" . $row["14"] . "<br>";
@@ -211,6 +223,26 @@
                 <div class="col-sm-4" style="margin-right: 2%;">Info bedrijf:&nbsp;</div>
                 <div class="col-sm-7">
                   <input required type="text" name="bedrijfsInfo">
+                </div>
+                <br />
+                <div class="col-sm-4" style="margin-right: 2%;">Adres:&nbsp;</div>
+                <div class="col-sm-7">
+                  <input required type="text" name="bedrijfsAdres">
+                </div>
+                <br />
+                <div class="col-sm-4" style="margin-right: 2%;">Telefoon nummer:&nbsp;</div>
+                <div class="col-sm-7">
+                  <input required type="text" name="bedrijfsTel">
+                </div>
+                <br />
+                <div class="col-sm-4" style="margin-right: 2%;">Website:&nbsp;</div>
+                <div class="col-sm-7">
+                  <input required type="text" name="bedrijfsWebsite">
+                </div>
+                <br />
+                <div class="col-sm-4" style="margin-right: 2%;">Contact persoon:&nbsp;</div>
+                <div class="col-sm-7">
+                  <input required type="text" name="bedrijfsContactPer">
                 </div>
                 <br />
                 <div class="col-sm-4" style="margin-right: 2%;">Geschatten aantal personeel:&nbsp;</div>
@@ -428,6 +460,26 @@
                   <input required type="text" name="bedrijfEditInfo" id="bedrijfEditInfo">
                 </div>
                 <br />
+                <div class="col-sm-4" style="margin-right: 2%;">Adres:&nbsp;</div>
+                <div class="col-sm-7">
+                  <input required type="text" name="bedrijfsEditAdres" id="bedrijfsEditAdres">
+                </div>
+                <br />
+                <div class="col-sm-4" style="margin-right: 2%;">Telefoon nummer:&nbsp;</div>
+                <div class="col-sm-7">
+                  <input required type="text" name="bedrijfsEditTel" id="bedrijfsEditTel">
+                </div>
+                <br />
+                <div class="col-sm-4" style="margin-right: 2%;">Website:&nbsp;</div>
+                <div class="col-sm-7">
+                  <input required type="text" name="bedrijfsEditWebsite" id="bedrijfsEditWebsite">
+                </div>
+                <br />
+                <div class="col-sm-4" style="margin-right: 2%;">Contact persoon:&nbsp;</div>
+                <div class="col-sm-7">
+                  <input required type="text" name="bedrijfsEditContactPer" id="bedrijfsEditContactPer">
+                </div>
+                <br />
                 <div class="col-sm-4" style="margin-right: 2%;">Geschatten aantal personeel:&nbsp;</div>
                 <div class="col-sm-7">
                   <input required type="values" name="aantalPersoneelEdit" id="aantalPersoneelEdit">
@@ -589,10 +641,6 @@
           </div>
         </div>
       </form>
-    </div>
-    <?php
-
-     ?>
     </div>
   </body>
 </html>
