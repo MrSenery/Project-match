@@ -1,26 +1,40 @@
-<!DOCTYPE HTML>
 <?php
-session_destroy();
-session_start();
-//ini_set('display_errors', 1);
-//error_reporting(E_ALL|E_STRICT);
-//SQL database connectie
-include 'connection.php';
-//Gebruikersnaam en Wachtwoord uit database ophalen
-$gebruikersnaam = "gebruiker";
-$wachtwoord = "wachtwoord";
+$host = "localhost";
+$username = "root";
+$password = "";
+$db_name = "matchmakers";
 
-//Checked of gebruiker is ingelogd
-if (isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == true) {
-    //Als true, naar inlog locatie
-    header("Location: Profiel.php");
-}
-//Checked gebruiker credentials
-if (isset($_POST['Gebruikersnaam']) && isset($_POST['Wachtwoord'])) {
-    if ($_POST['Gebruikersnaam'] == $gebruikersnaam && $_POST['Wachtwoord'] == $wachtwoord) {
-        //Als true, naar inlog locatie
-        $_SESSION['LoggedIn'] = true;
-        header("Location: Profiel.php");
+$con = mysqli_connect($host, $username, $password, $db_name);
+$query = "SELECT * FROM docenten";
+
+if (isset($_POST["login"]))
+{
+    $DocentGebruikersnaam = $_POST['username'];
+    $DocentWachtwoord = $_POST['password'];
+    if ($queryResult = mysqli_query($con, $query))
+    {
+        while ($row = mysqli_fetch_row($queryResult))
+        {
+            if ($DocentGebruikersnaam === $row['1'])
+            {
+                if ($DocentWachtwoord === $row['2'])
+                {
+                    echo 'ingelogd';
+                    session_start();
+                    $_SESSION['DocentNaam'] = $DocentGebruikersnaam;
+                    $_SESSION['DocentPass'] = $DocentWachtwoord;
+                    header("location: index.php");
+                }
+                else
+                {
+                    echo 'Verkeerd wachtwoord';
+                }
+            }
+            else
+            {
+                echo 'Verkeerde naam';
+            }
+        }
     }
 }
 ?>
@@ -103,11 +117,7 @@ if (isset($_POST['Gebruikersnaam']) && isset($_POST['Wachtwoord'])) {
             cursor: pointer;           
         }
         .loginlink {
-            float: left;
-            margin: auto;
-        }
-        .registerlink{
-            float: right;
+            float: none;
             margin: auto;
         }
         input[type=submit] {
@@ -143,21 +153,19 @@ if (isset($_POST['Gebruikersnaam']) && isset($_POST['Wachtwoord'])) {
         <div class="panel-heading">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="#" class="active" id="loginlink">Inloggen</a>
-                    <a href="#" id="registerlink">Registreren</a>
+                    <a class="active" id="loginlink">Inloggen</a>
                 </div>
             </div>
-            <form>
+            <form action="LogIn.php" method="POST">
                 <label for="username">Gebruikersnaam:</label>
                 <input type="text" id="username" name="username">
                 <label for="password">Wachtwoord :</label>
                 <input type="password" id="password" name="password">
                 <div id="lower">
-                    <input type="checkbox"><label for="checkbox">Hou mij ingelogd</label>
-                    <input type="submit" value="Login">                         
-                    <a href="#" id="forgotpassword">Wachtwoord vergeten?</a>
-                </div><!--/ lower-->
+                    <input id="LoginButton" type="submit" name="login" value="Login">
+                </div>
             </form>
         </div>
+    </div>
 </html>
 

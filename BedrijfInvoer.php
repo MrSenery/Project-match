@@ -112,7 +112,7 @@
             </div>
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4" style="color: white;">
+                <div class="col-4" id="TColour">
                     <?php
                     $con = mysqli_connect($host, $username, $password, $db_name);
                     if (isset($_POST["SaveModel"])) {
@@ -211,15 +211,15 @@
                     if ($result = mysqli_query($con, $query)) {
                         // output data of each row
                         while ($row = mysqli_fetch_row($result)) {
-                            echo "<i class='fa fa-building'></i>" . "&nbsp;" . $row["13"]
+                            echo "<i class='fa fa-building' style='text-shadow: none;'></i>" . "&nbsp;" . $row["13"]
                             . "<button style='float: right;' data-toggle='modal' data-target='#bedrijfVerwijderen' onclick='Delete(" . $row['12'] . ", \"" . $row['13'] . "\")'>"
                             . "<i class='fa fa-trash fa-sm'></i></button>"
                             . "<button style='float: right;' data-toggle='modal' data-target='#bedrijfEdit' onclick='Edit(" . $row['0'] . ", \"" . $row['13'] . "\", \"" . $row['14'] . "\", \"" . $row['15'] . "\", \"" . $row['16'] . "\", \"" . $row['17'] . "\", \"" . $row['18'] . "\", \"" . $row['19'] . "\", " . $row['7'] . ", \"" . $row['8'] . "\", \"" . $row['9'] . "\", \"" . $row['10'] . "\", \"" . $row['11'] . "\", " . $row['2'] . ", " . $row['3'] . ", " . $row['4'] . ", " . $row['5'] . ", " . $row['6'] . ")'>"
                             . "<i class='fa fa-edit fa-sm'></i></button>" . "<br>";
 
-                            echo "<i class='fa fa-envelope'></i>" . "&nbsp;" . $row["14"] . "<br>";
-                            echo "<i class='fa fa-info-circle'></i>" . "&nbsp;" . $row["15"] . "<br>";
-                            echo "<br>__________________<br><br>";
+                            echo "<i class='fa fa-envelope' style='text-shadow: none;'></i>" . "&nbsp;" . $row["14"] . "<br>";
+                            echo "<i class='fa fa-info-circle' style='text-shadow: none;'></i>" . "&nbsp;" . $row["15"] . "<br>";
+                            echo "<br><a style='text-shadow: none;'>__________________</a><br><br>";
                         }
                     } else {
                         echo "Geen bedrijven gevonden";

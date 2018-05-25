@@ -49,6 +49,14 @@ body {
     float:none;
 }
 
+#Match-goDiv {
+    background-color: #BCD9D9;
+    border-bottom-style: solid;
+    border-bottom-color: #BCD9D9;
+    border-top-style: solid;
+    border-top-color: #BCD9D9;
+}
+
 #Match-go {
     background-color: #0C8282;
     border-color: #00A3A3;
@@ -99,4 +107,13 @@ body {
 #CheckboxDiv {
     margin-right: 2%;
     margin-left: -4%;
+}
+
+#TColour {
+    color: white;
+    text-shadow:
+    -1px -1px 0 #3F4D4D,
+    1px -1px 0 #3F4D4D,
+    -1px 1px 0 #3F4D4D,
+    1px 1px 0 #3F4D4D;
 }

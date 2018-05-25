@@ -181,7 +181,7 @@ session_start();
                     </div>
                 </div>
             </div>
-            <div class="col-12" style="background-color: #BCD9D9; border-bottom-style: solid;">
+            <div class="col-12" id="Match-goDiv">
             <input type="submit" id="Match-go" name="match-go" value="Match-go"/>
             </div>
         </form>
@@ -298,7 +298,7 @@ session_start();
                       if ($val >= 0 && $val <= 25)
                       {
                         echo '<div class="col-12" style="background-color: #BCD9D9;">
-                              <div class="row" style="border-bottom-style: solid;">
+                              <div class="row" style="border-top-style: solid;">
                                 <div class="col-11">
                                     <form method="POST" action="Bedrijf.php">
                                         <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
@@ -311,7 +311,7 @@ session_start();
                               </div>';
                       } else if ($val >= 26 && $val <= 50) {
                         echo '<div class="col-12" style="background-color: #BCD9D9;">
-                              <div class="row" style="border-bottom-style: solid;">
+                              <div class="row" style="border-top-style: solid;">
                                 <div class="col-11">
                                     <form method="POST" action="Bedrijf.php">
                                         <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
@@ -324,7 +324,7 @@ session_start();
                               </div>';
                       } else if ($val >= 51 && $val <= 75) {
                         echo '<div class="col-12" style="background-color: #BCD9D9;">
-                              <div class="row" style="border-bottom-style: solid;">
+                              <div class="row" style="border-top-style: solid;">
                                 <div class="col-11">
                                     <form method="POST" action="Bedrijf.php">
                                         <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
@@ -337,7 +337,7 @@ session_start();
                               </div>';
                       } else if ($val >= 76 && $val <= 100) {
                         echo '<div class="col-12" style="background-color: #BCD9D9;">
-                              <div class="row" style="border-bottom-style: solid;">
+                              <div class="row" style="border-top-style: solid;">
                                 <div class="col-11">
                                     <form method="POST" action="Bedrijf.php">
                                         <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
@@ -350,7 +350,7 @@ session_start();
                               </div>';
                       } else {
                         echo '<div class="col-12" style="background-color: #BCD9D9;">
-                              <div class="row" style="border-bottom-style: solid;">
+                              <div class="row" style="border-top-style: solid;">
                                 <div class="col-11">
                                     <form method="POST" action="Bedrijf.php">
                                         <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
