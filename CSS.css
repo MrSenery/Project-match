@@ -78,10 +78,10 @@ body {
 }
 
 #LightColInfoBox {
-          max-width: 1200px;
-          margin: auto;
-          padding: 10px;
-          background-color:#BCD9D9;
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+    background-color:#BCD9D9;
 }
 
 #Bedrijf {
@@ -90,4 +90,13 @@ body {
     background: none;
     font-size: 24px;
     font-weight: bold;
+}
+
+#BoxInput {
+    width: 70%;
+    margin-left: -4%;
+}
+#CheckboxDiv {
+    margin-right: 2%;
+    margin-left: -4%;
 }
