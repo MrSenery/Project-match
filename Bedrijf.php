@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include("HeaderNav.php"); 
+<?php include("HeaderNav.php");
 session_start();
 ?>
 <html>
@@ -17,81 +17,60 @@ session_start();
       }
   </style>
   <body>
-      
-      <a id="test" style="background-color: white;"><?php echo 'Test<br>' . $_POST["bedrijf"];; ?></a>
-      
-        <div class="col-sm-8" id="LightCol" height="500px"><br>
-            <h1>Novacollege</h1>
-            <p></p>
-            <a>Locatie: Laurens Baecklaan 23, 1942 LN Beverwijk</a>
-        </div>
-            <p></p>
-        <div class="col-sm-8" id="LightColInfoBox" background-color="#BCD9D9">
-            <table class="table">
-                <thead>
-                  <tr>
-                      <th scope="col"><h3>Erkend voor opleiding(en)</h3>
-                        <p></p>
-                            opleidingen(en)
-                    </th>
-                    <th scope="col">Crebonummer</th>
-                    <th scope="col">Niveau</th>
-                    <th scope="col">Beschikbaarheid</th>
-                  </tr>
-                </thead>
-                    <tbody>
-                      <tr>
-                        <td>Applicatie-en mediaontwikkelaar</td>
-                        <td>25187</td>
-                        <td>4</td>
-                        <td>2 Stageplaats(en)</td>
-                      </tr>
-                      <tr>
-                        <td>ICT-beheer</td>
-                        <td>25189</td>
-                        <td>3</td>
-                        <td>1 Stageplaats(en)</td>
-                      </tr>
-                      <tr>
-                        <td>Alround kapper</td>
-                        <td>32674</td>
-                        <td>3</td>
-                        <td>3 Stageplaats(en)</td>
-                      </tr>
-                      <tr>
-                        <td>Allround monteur mobiele werktuigen</td>
-                        <td>25241</td>
-                        <td>3</td>
-                        <td>2 Stageplaats(en)</td>
-                      </tr>
-                    </tbody>
-            </table>
-        </div>
-             <p></p>
-        <div class="col-sm-8" id="LightColInfoBox" background-color="#BCD9D9">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col"><h3>Leerbedrijf Details</h3>
-                        <p></p>
-                    </th>
-                    <tr>
-                        <th>Leerbedrijf ID</th>
-                        <td>12545632</td>
-                    </tr>
-                    <tr>
-                        <th>Adres</th>
-                        <td>Laurens Baecklaan 23, 1942 LN Beverwijk</td>
-                    </tr>
-                    <tr>
-                        <th>Telefoonnummer</th>
-                        <td>023 530 3000</td>
-                    </tr>
-                    <tr>
-                        <th>Website</th>
-                        <td>https://www.novacollege.nl/</td>
-                    </tr>
-            </table>
-        </div>
+
+      <a id="test" style="background-color: white;">
+              </a>
+        <?php
+          //echo 'Test<br>' . $_POST["bedrijf"];
+          $con = mysqli_connect($host, $username, $password, $db_name);
+          $Bedrijf = $_POST['bedrijf'];
+          $sql = "SELECT * FROM bedrijfsinfo WHERE BedrijfsNaam='$Bedrijf'";
+
+          if ($result = mysqli_query($con, $sql))
+          {
+
+              // output data of each row
+              while ($row = mysqli_fetch_row($result))
+              {
+              echo "<div class='col-sm-8' id='LightCol' height='500px'><br>
+                      <h1>" . $row['1'] . "</h1>
+                      <p></p>
+                      <a>Locatie: " . $row['4'] . "</a>
+                    </div>";
+              echo "<p></p>";
+              echo "<div class='col-sm-8' id='LightColInfoBox' background-color='#BCD9D9'>
+                      <table class='table'>
+                          <thead>
+                            <tr>
+                              <th scope='col'><h3>Leerbedrijf Details</h3>
+                                  <p></p>
+                              </th>
+                              <tr>
+                                  <th>Info</th>
+                                  <td>" . $row['3'] . "</td>
+                              </tr>
+                              <tr>
+                                  <th>Email adres</th>
+                                  <td>" . $row['2'] . "</td>
+                              </tr>
+                              <tr>
+                                  <th>Telefoonnummer</th>
+                                  <td>" . $row['5'] . "</td>
+                              </tr>
+                              <tr>
+                                  <th>Website</th>
+                                  <td>" . $row['6'] . "</td>
+                              </tr>
+                              <tr>
+                                  <th>Contact persoon</th>
+                                  <td>" . $row['7'] . "</td>
+                              </tr>
+                      </table>
+                  </div>";
+            }
+          } else { echo "<script> alert('" . $result . "'); </script>"; }
+        ?>
+
+
   </body>
 </html>

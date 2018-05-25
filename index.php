@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include("HeaderNav.php"); 
+<?php include("HeaderNav.php");
 session_start();
 ?>
 <html>
@@ -192,175 +192,180 @@ session_start();
             $con = mysqli_connect($host, $username, $password, $db_name);
             $query = "SELECT * FROM bedrijven";
 
-            if ($queryResult = mysqli_query($con, $query)) {
-                $resultArray = array();
-                // Fetch one and one row
-                while ($row = mysqli_fetch_row($queryResult)) {
-                    $result = 0;
-                    //Bedrijf grote
-                    if (isset($_POST['Grote']) && isset($_POST['groteIsBelangrijkOptie'])) {
-                        $stapVerschil = 0;
-                        $groteResultaat = 0;
-                        if ($_POST['Grote'] > $row['2']) {
-                            $stapVerschil = $_POST['Grote'] - $row['2'];
+            if(isset($_POST['match-go']))
+            {
+              if ($queryResult = mysqli_query($con, $query)) {
+                  $resultArray = array();
+                  // Fetch one and one row
+                  while ($row = mysqli_fetch_row($queryResult)) {
+                      $result = 0;
+                      //Bedrijf grote
+                      if (isset($_POST['Grote']) && isset($_POST['groteIsBelangrijkOptie'])) {
+                          $stapVerschil = 0;
+                          $groteResultaat = 0;
+                          if ($_POST['Grote'] > $row['2']) {
+                              $stapVerschil = $_POST['Grote'] - $row['2'];
 
-                            $groteResultaat = 20 - (((20 / 2) / $_POST['groteIsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $groteResultaat;
-                        } else if ($_POST['Grote'] < $row['2']) {
-                            $stapVerschil = $row['2'] - $_POST['Grote'];
+                              $groteResultaat = 20 - (((20 / 2) / $_POST['groteIsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $groteResultaat;
+                          } else if ($_POST['Grote'] < $row['2']) {
+                              $stapVerschil = $row['2'] - $_POST['Grote'];
 
-                            $groteResultaat = 20 - (((20 / 2) / $_POST['groteIsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $groteResultaat;
-                        } else if ($_POST['Grote'] == $row['2']) {
-                            $result = $result + 20;
-                        }
-                    }
-                    //diversiteit in het werk
-                    if (isset($_POST['Werkzaamheden']) && isset($_POST['WerkIsBelangrijkOptie'])) {
-                        $stapVerschil = 0;
-                        $werkResultaat = 0;
-                        if ($_POST['Werkzaamheden'] > $row['3']) {
-                            $stapVerschil = $_POST['Werkzaamheden'] - $row['3'];
+                              $groteResultaat = 20 - (((20 / 2) / $_POST['groteIsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $groteResultaat;
+                          } else if ($_POST['Grote'] == $row['2']) {
+                              $result = $result + 20;
+                          }
+                      }
+                      //diversiteit in het werk
+                      if (isset($_POST['Werkzaamheden']) && isset($_POST['WerkIsBelangrijkOptie'])) {
+                          $stapVerschil = 0;
+                          $werkResultaat = 0;
+                          if ($_POST['Werkzaamheden'] > $row['3']) {
+                              $stapVerschil = $_POST['Werkzaamheden'] - $row['3'];
 
-                            $werkResultaat = 20 - (((20 / 4) / $_POST['WerkIsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $werkResultaat;
-                        } else if ($_POST['Werkzaamheden'] < $row['3']) {
-                            $stapVerschil = $row['3'] - $_POST['Werkzaamheden'];
+                              $werkResultaat = 20 - (((20 / 4) / $_POST['WerkIsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $werkResultaat;
+                          } else if ($_POST['Werkzaamheden'] < $row['3']) {
+                              $stapVerschil = $row['3'] - $_POST['Werkzaamheden'];
 
-                            $werkResultaat = 20 - (((20 / 4) / $_POST['WerkIsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $werkResultaat;
-                        } else if ($_POST['Werkzaamheden'] == $row['3']) {
-                            $result = $result + 20;
-                        }
-                    }
-                    //Zelfstandigheid
-                    if (isset($_POST['zelfstandigheid']) && isset($_POST['zelfIsBelangrijkOptie'])) {
-                        $stapVerschil = 0;
-                        $werkResultaat = 0;
-                        if ($_POST['zelfstandigheid'] > $row['4']) {
-                            $stapVerschil = $_POST['zelfstandigheid'] - $row['4'];
+                              $werkResultaat = 20 - (((20 / 4) / $_POST['WerkIsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $werkResultaat;
+                          } else if ($_POST['Werkzaamheden'] == $row['3']) {
+                              $result = $result + 20;
+                          }
+                      }
+                      //Zelfstandigheid
+                      if (isset($_POST['zelfstandigheid']) && isset($_POST['zelfIsBelangrijkOptie'])) {
+                          $stapVerschil = 0;
+                          $werkResultaat = 0;
+                          if ($_POST['zelfstandigheid'] > $row['4']) {
+                              $stapVerschil = $_POST['zelfstandigheid'] - $row['4'];
 
-                            $zelfResultaat = 20 - (((20 / 2) / $_POST['zelfIsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $zelfResultaat;
-                        } else if ($_POST['zelfstandigheid'] < $row['4']) {
-                            $stapVerschil = $row['4'] - $_POST['zelfstandigheid'];
+                              $zelfResultaat = 20 - (((20 / 2) / $_POST['zelfIsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $zelfResultaat;
+                          } else if ($_POST['zelfstandigheid'] < $row['4']) {
+                              $stapVerschil = $row['4'] - $_POST['zelfstandigheid'];
 
-                            $zelfResultaat = 20 - (((20 / 2) / $_POST['zelfIsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $zelfResultaat;
-                        } else if ($_POST['zelfstandigheid'] == $row['4']) {
-                            $result = $result + 20;
-                        }
-                    }
-                    //P2
-                    if (isset($_POST['Profiel2']) && isset($_POST['P2IsBelangrijkOptie'])) {
-                        $stapVerschil = 0;
-                        $werkResultaat = 0;
-                        if ($_POST['Profiel2'] > $row['5']) {
-                            $stapVerschil = $_POST['Profiel2'] - $row['5'];
+                              $zelfResultaat = 20 - (((20 / 2) / $_POST['zelfIsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $zelfResultaat;
+                          } else if ($_POST['zelfstandigheid'] == $row['4']) {
+                              $result = $result + 20;
+                          }
+                      }
+                      //P2
+                      if (isset($_POST['Profiel2']) && isset($_POST['P2IsBelangrijkOptie'])) {
+                          $stapVerschil = 0;
+                          $werkResultaat = 0;
+                          if ($_POST['Profiel2'] > $row['5']) {
+                              $stapVerschil = $_POST['Profiel2'] - $row['5'];
 
-                            $zelfResultaat = 20 - (((20 / 1) / $_POST['P2IsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $zelfResultaat;
-                        } else if ($_POST['Profiel2'] < $row['5']) {
-                            $stapVerschil = $row['5'] - $_POST['Profiel2'];
+                              $zelfResultaat = 20 - (((20 / 1) / $_POST['P2IsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $zelfResultaat;
+                          } else if ($_POST['Profiel2'] < $row['5']) {
+                              $stapVerschil = $row['5'] - $_POST['Profiel2'];
 
-                            $zelfResultaat = 20 - (((20 / 1) / $_POST['P2IsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $zelfResultaat;
-                        } else if ($_POST['Profiel2'] == $row['5']) {
-                            $result = $result + 20;
-                        }
-                    }
-                    //Klanten contact
-                    if (isset($_POST['Klantenomgang']) && isset($_POST['klantIsBelangrijkOptie'])) {
-                        $stapVerschil = 0;
-                        $werkResultaat = 0;
-                        if ($_POST['Klantenomgang'] > $row['6']) {
-                            $stapVerschil = $_POST['Klantenomgang'] - $row['6'];
+                              $zelfResultaat = 20 - (((20 / 1) / $_POST['P2IsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $zelfResultaat;
+                          } else if ($_POST['Profiel2'] == $row['5']) {
+                              $result = $result + 20;
+                          }
+                      }
+                      //Klanten contact
+                      if (isset($_POST['Klantenomgang']) && isset($_POST['klantIsBelangrijkOptie'])) {
+                          $stapVerschil = 0;
+                          $werkResultaat = 0;
+                          if ($_POST['Klantenomgang'] > $row['6']) {
+                              $stapVerschil = $_POST['Klantenomgang'] - $row['6'];
 
-                            $zelfResultaat = 20 - (((20 / 4) / $_POST['klantIsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $zelfResultaat;
-                        } else if ($_POST['Klantenomgang'] < $row['6']) {
-                            $stapVerschil = $row['6'] - $_POST['Klantenomgang'];
+                              $zelfResultaat = 20 - (((20 / 4) / $_POST['klantIsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $zelfResultaat;
+                          } else if ($_POST['Klantenomgang'] < $row['6']) {
+                              $stapVerschil = $row['6'] - $_POST['Klantenomgang'];
 
-                            $zelfResultaat = 20 - (((20 / 4) / $_POST['klantIsBelangrijkOptie']) * $stapVerschil);
-                            $result = $result + $zelfResultaat;
-                        } else if ($_POST['Klantenomgang'] == $row['6']) {
-                            $result = $result + 20;
-                        }
-                    }
-                    $resultArray[$row[1]] = $result;
-                }
-                // Uitkomsten van bedrijven, met gekleurde %
-                arsort($resultArray);
-                foreach ($resultArray as $key => $val) {
-                    if ($val >= 0 && $val <= 25) {
-                    echo '<div class="col-12" style="background-color: #BCD9D9;">
-                          <div class="row" style="border-bottom-style: solid;">
-                            <div class="col-11">
-                                <form method="POST" action="Bedrijf.php">
-                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
-                                </form>';
-                    echo   '</div>
-                            <div class="col-1">
-                                <h3 style="color: #D92A13">' . $val . '%</h3>
-                            </div>
-                          </div>
-                          </div>';
-                } else if ($val >= 26 && $val <= 50) {
-                    echo '<div class="col-12" style="background-color: #BCD9D9;">
-                          <div class="row" style="border-bottom-style: solid;">
-                            <div class="col-11">
-                                <form method="POST" action="Bedrijf.php">
-                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
-                                </form>';
-                    echo   '</div>
-                            <div class="col-1">
-                                <h3 style="color: #D99713">' . $val . '%</h3>
-                            </div>
-                          </div>
-                          </div>';
-                } else if ($val >= 51 && $val <= 75) {
-                    echo '<div class="col-12" style="background-color: #BCD9D9;">
-                          <div class="row" style="border-bottom-style: solid;">
-                            <div class="col-11">
-                                <form method="POST" action="Bedrijf.php">
-                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
-                                </form>';
-                    echo   '</div>
-                            <div class="col-1">
-                                <h3 style="color: #D9CE13">' . $val . '%</h3>
-                            </div>
-                          </div>
-                          </div>';
-                } else if ($val >= 76 && $val <= 100) {
-                    echo '<div class="col-12" style="background-color: #BCD9D9;">
-                          <div class="row" style="border-bottom-style: solid;">
-                            <div class="col-11">
-                                <form method="POST" action="Bedrijf.php">
-                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
-                                </form>';
-                    echo   '</div>
-                            <div class="col-1">
-                                <h3 style="color: #10AD10">' . $val . '%</h3>
-                            </div>
-                          </div>
-                          </div>';
-                } else {
-                    echo '<div class="col-12" style="background-color: #BCD9D9;">
-                          <div class="row" style="border-bottom-style: solid;">
-                            <div class="col-11">
-                                <form method="POST" action="Bedrijf.php">
-                                    <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
-                                </form>';
-                    echo   '</div>
-                            <div class="col-1">
-                                <h3>' . $val . '%</h3>
-                            </div>
-                          </div>
-                          </div>';
-                }
-                }
-                // Free result set
-                mysqli_free_result($queryResult);
+                              $zelfResultaat = 20 - (((20 / 4) / $_POST['klantIsBelangrijkOptie']) * $stapVerschil);
+                              $result = $result + $zelfResultaat;
+                          } else if ($_POST['Klantenomgang'] == $row['6']) {
+                              $result = $result + 20;
+                          }
+                      }
+                      $resultArray[$row[1]] = $result;
+                  }
+                  // Uitkomsten van bedrijven, met gekleurde %
+                  arsort($resultArray);
+                  foreach ($resultArray as $key => $val)
+                  {
+                      if ($val >= 0 && $val <= 25)
+                      {
+                        echo '<div class="col-12" style="background-color: #BCD9D9;">
+                              <div class="row" style="border-bottom-style: solid;">
+                                <div class="col-11">
+                                    <form method="POST" action="Bedrijf.php">
+                                        <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                    </form>';
+                        echo   '</div>
+                                <div class="col-1">
+                                    <h3 style="color: #D92A13">' . $val . '%</h3>
+                                </div>
+                              </div>
+                              </div>';
+                      } else if ($val >= 26 && $val <= 50) {
+                        echo '<div class="col-12" style="background-color: #BCD9D9;">
+                              <div class="row" style="border-bottom-style: solid;">
+                                <div class="col-11">
+                                    <form method="POST" action="Bedrijf.php">
+                                        <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                    </form>';
+                        echo   '</div>
+                                <div class="col-1">
+                                    <h3 style="color: #D99713">' . $val . '%</h3>
+                                </div>
+                              </div>
+                              </div>';
+                      } else if ($val >= 51 && $val <= 75) {
+                        echo '<div class="col-12" style="background-color: #BCD9D9;">
+                              <div class="row" style="border-bottom-style: solid;">
+                                <div class="col-11">
+                                    <form method="POST" action="Bedrijf.php">
+                                        <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                    </form>';
+                        echo   '</div>
+                                <div class="col-1">
+                                    <h3 style="color: #D9CE13">' . $val . '%</h3>
+                                </div>
+                              </div>
+                              </div>';
+                      } else if ($val >= 76 && $val <= 100) {
+                        echo '<div class="col-12" style="background-color: #BCD9D9;">
+                              <div class="row" style="border-bottom-style: solid;">
+                                <div class="col-11">
+                                    <form method="POST" action="Bedrijf.php">
+                                        <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                    </form>';
+                        echo   '</div>
+                                <div class="col-1">
+                                    <h3 style="color: #10AD10">' . $val . '%</h3>
+                                </div>
+                              </div>
+                              </div>';
+                      } else {
+                        echo '<div class="col-12" style="background-color: #BCD9D9;">
+                              <div class="row" style="border-bottom-style: solid;">
+                                <div class="col-11">
+                                    <form method="POST" action="Bedrijf.php">
+                                        <input id="Bedrijf" type="submit" href="bedrijf.php" name="bedrijf" value="' . $key . '">
+                                    </form>';
+                        echo   '</div>
+                                <div class="col-1">
+                                    <h3>' . $val . '%</h3>
+                                </div>
+                              </div>
+                              </div>';
+                      }
+                  }
+                  // Free result set
+                  mysqli_free_result($queryResult);
+              }
             }
             ?>
         </div>
