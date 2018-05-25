@@ -401,7 +401,7 @@
             </div>
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" Name="SaveModel" value="Opslaan">
-              <input type="submit" class="btn btn-secondary" data-dismiss="modal" Name"CloseModel" value="Sluiten">
+              <input type="submit" class="btn btn-secondary" data-dismiss="modal" Name="CloseModel" value="Sluiten">
             </div>
           </div>
         </div>
@@ -636,7 +636,7 @@
             </div>
             <div class="modal-footer">
               <input type="submit" class="btn btn-primary" Name="EditModel" value="Opslaan">
-              <input type="submit" class="btn btn-secondary" data-dismiss="modal" Name"CloseModel" value="Sluiten">
+              <input type="submit" class="btn btn-secondary" data-dismiss="modal" Name="CloseModel" value="Sluiten">
             </div>
           </div>
         </div>

@@ -1,28 +1,28 @@
 <!DOCTYPE HTML>
 <?php
-    session_start();
-    //ini_set('display_errors', 1);
-    //error_reporting(E_ALL|E_STRICT);
-    
-    //SQL database connectie
-    include 'connection.php';
-    //Gebruikersnaam en Wachtwoord uit database ophalen
-    $gebruikersnaam = "gebruiker";
-    $wachtwoord = "wachtwoord";
-    
-    //Checked of gebruiker is ingelogd
-    if (isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == true){
+session_destroy();
+session_start();
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL|E_STRICT);
+//SQL database connectie
+include 'connection.php';
+//Gebruikersnaam en Wachtwoord uit database ophalen
+$gebruikersnaam = "gebruiker";
+$wachtwoord = "wachtwoord";
+
+//Checked of gebruiker is ingelogd
+if (isset($_SESSION['LoggedIn']) && $_SESSION['LoggedIn'] == true) {
+    //Als true, naar inlog locatie
+    header("Location: Profiel.php");
+}
+//Checked gebruiker credentials
+if (isset($_POST['Gebruikersnaam']) && isset($_POST['Wachtwoord'])) {
+    if ($_POST['Gebruikersnaam'] == $gebruikersnaam && $_POST['Wachtwoord'] == $wachtwoord) {
         //Als true, naar inlog locatie
+        $_SESSION['LoggedIn'] = true;
         header("Location: Profiel.php");
     }
-    //Checked gebruiker credentials
-    if (isset($_POST['Gebruikersnaam']) && isset($_POST['Wachtwoord'])){
-        if($_POST['Gebruikersnaam'] == $gebruikersnaam && $_POST['Wachtwoord'] == $wachtwoord){
-            //Als true, naar inlog locatie
-            $_SESSION['LoggedIn'] = true;
-            header("Location: Profiel.php");
-        }
-    }
+}
 ?>
 
 <html>
@@ -63,7 +63,7 @@
             width: 290px;
             height: 35px;
             border: 1px solid #c7d0d2;
-	}
+        }
         #lower {
             background: #FFF;
             width: 100%;
@@ -133,31 +133,31 @@
             margin-left: 55px;
         }
     </style>
-        <head>
-            <!-- Match makers stylesheet -->
-            <link href="CSS.css" rel="stylesheet" type="text/css">
-            <!-- Bootstrap -->
-            <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-        </head>
-            <div id="containerLogIn">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <a href="#" class="active" id="loginlink">Inloggen</a>
-                                 <a href="#" id="registerlink">Registreren</a>
-                            </div>
-                    </div>
-                <form>
-                    <label for="username">Gebruikersnaam:</label>
-                        <input type="text" id="username" name="username">
-                            <label for="password">Wachtwoord :</label>
-                                <input type="password" id="password" name="password">
-                        <div id="lower">
-                            <input type="checkbox"><label for="checkbox">Hou mij ingelogd</label>
-                                <input type="submit" value="Login">                         
-                                    <a href="#" id="forgotpassword">Wachtwoord vergeten?</a>
-                        </div><!--/ lower-->
-                </form>
+    <head>
+        <!-- Match makers stylesheet -->
+        <link href="CSS.css" rel="stylesheet" type="text/css">
+        <!-- Bootstrap -->
+        <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    </head>
+    <div id="containerLogIn">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-6">
+                    <a href="#" class="active" id="loginlink">Inloggen</a>
+                    <a href="#" id="registerlink">Registreren</a>
+                </div>
             </div>
+            <form>
+                <label for="username">Gebruikersnaam:</label>
+                <input type="text" id="username" name="username">
+                <label for="password">Wachtwoord :</label>
+                <input type="password" id="password" name="password">
+                <div id="lower">
+                    <input type="checkbox"><label for="checkbox">Hou mij ingelogd</label>
+                    <input type="submit" value="Login">                         
+                    <a href="#" id="forgotpassword">Wachtwoord vergeten?</a>
+                </div><!--/ lower-->
+            </form>
+        </div>
 </html>
 
