@@ -6,7 +6,7 @@ $db_name = "matchmakers";
 
 $con = mysqli_connect($host, $username, $password, $db_name);
 $query = "SELECT * FROM docenten";
-
+//login, via passwordhash check
 if (isset($_POST["login"]))
 {
     $DocentGebruikersnaam = $_POST['username'];
@@ -17,7 +17,8 @@ if (isset($_POST["login"]))
         {
             if ($DocentGebruikersnaam === $row['1'])
             {
-                if ($DocentWachtwoord === $row['2'])
+//                if ($DocentWachtwoord === $row['2'])
+                if (password_verify($DocentWachtwoord, $row['2']))
                 {
                     echo 'ingelogd';
                     session_start();

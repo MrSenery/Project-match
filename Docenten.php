@@ -46,8 +46,9 @@
                         $DocentAchternaam = $_POST['docentAchternaam'];
                         $LeerRichting = $_POST['docentLeerrichting'];
                         $DocentEmail = $_POST['docentEmail'];
+                        $DocentenWachtwoordHash = password_hash($DocentWachtwoord, PASSWORD_DEFAULT);
 
-                        $sql = "INSERT INTO docenten(DocentGebruikersnaam, DocentWachtwoord, DocentNaam, DocentAchternaam, LeerRichting, DocentEmail) VALUES ('$DocentGebruikersnaam','$DocentWachtwoord','$DocentNaam','$DocentAchternaam','$LeerRichting','$DocentEmail')";
+                        $sql = "INSERT INTO docenten(DocentGebruikersnaam, DocentWachtwoord, DocentNaam, DocentAchternaam, LeerRichting, DocentEmail) VALUES ('$DocentGebruikersnaam','$DocentenWachtwoordHash','$DocentNaam','$DocentAchternaam','$LeerRichting','$DocentEmail')";
                         mysqli_query($con, $sql);
                     }
 
@@ -66,8 +67,9 @@
                         $DocentAchternaam = $_POST['docentEditAchternaam'];
                         $LeerRichting = $_POST['docentEditLeerrichting'];
                         $DocentEmail = $_POST['docentEditEmail'];
+                        $DocentenWachtwoordHash = password_hash($DocentWachtwoord, PASSWORD_DEFAULT);
 
-                        $sql = "UPDATE `docenten` SET DocentGebruikersNaam='$DocentGebruikersnaam',DocentWachtwoord='$DocentWachtwoord',DocentNaam='$DocentNaam',DocentAchternaam='$DocentAchternaam',LeerRichting='$LeerRichting',DocentEmail='$DocentEmail' WHERE  DocentId='$DocentId'";
+                        $sql = "UPDATE `docenten` SET DocentGebruikersNaam='$DocentGebruikersnaam',DocentWachtwoord='$DocentenWachtwoordHash',DocentNaam='$DocentNaam',DocentAchternaam='$DocentAchternaam',LeerRichting='$LeerRichting',DocentEmail='$DocentEmail' WHERE  DocentId='$DocentId'";
                         mysqli_query($con, $sql);
                     }
 
