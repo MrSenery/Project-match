@@ -26,6 +26,10 @@
             document.getElementById("deleteName").setAttribute("value", DocentNaam);
             document.getElementById("deleteShowName").innerHTML = DocentNaam;
         }
+
+        function PassReset(DocentId) {
+            document.getElementById("passResetDocentId").setAttribute("value", DocentId);
+        }
     </script>
     <body>
         <div class="col-12" style="background-color: #93C0C0;">
@@ -59,6 +63,20 @@
                         mysqli_query($con, $sql);
                     }
 
+                    if (isset($_POST['DocentPassReset'])) {
+                      $Pass1 = $_POST['passResetDocentPass1'];
+                      $Pass2 = $_POST['passResetDocentPass2'];
+                      $DocentId = $_POST['passResetDocentId'];
+                      if($Pass1 == $Pass2) {
+                        $NewPassHash = password_hash($Pass1, PASSWORD_DEFAULT);
+
+                        $sql = "UPDATE docenten SET DocentWachtwoord='$NewPassHash' WHERE  DocentId='$DocentId'";
+                        mysqli_query($con, $sql);
+                      } else {
+                        echo "<script> alert('Wachtwoorden zijn niet hetzelfde!'); </script>";
+                      }
+                    }
+
                     if (isset($_POST["EditModel"])) {
                         $DocentId = $_POST['docentEditId'];
                         $DocentGebruikersnaam = $_POST['docentEditGebruikersaam'];
@@ -79,6 +97,7 @@
                         // output data of each row
                         while ($row = mysqli_fetch_row($result)) {
                             echo "<i class='fa fa-user' style='text-shadow: none;'></i>" . " " . $row["3"] . " " . $row["4"]
+                            . "<button style='float: right;' data-toggle='modal' data-target='#docentPassReset' onclick='PassReset(" . $row['0'] . ")'>Pass reset</button>"
                             . "<button style='float: right;' data-toggle='modal' data-target='#docentVerwijderen' onclick='Delete(" . $row['0'] . ", \"" . $row['3'] . " " . $row['4'] . "\")'>"
                             . "<i class='fa fa-trash fa-sm'></i></button>"
                             . "<button style='float: right;' data-toggle='modal' data-target='#docentEdit' onclick='Edit(" . $row['0'] . ", \"" . $row['1'] . "\", \"" . $row['2'] . "\", \"" . $row['3'] . "\", \"" . $row['4'] . "\", \"" . $row['5'] . "\", \"" . $row['6'] . "\")'>"
@@ -174,6 +193,41 @@
             </form>
         </div>
 
+        <div id="docentPassReset" class="modal fade" role="dialog">
+            <form action="Docenten.php" method="post">
+                <div class="modal-dialog modal-lg">
+                    <!--Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Wachtwoord wijzigen</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                          <div class="modal-body ">
+                            <div class="row">
+                              <div class="col-sm-4" style="margin-right: 2%;">Docent id:</div>
+                              <div class="col-sm-7">
+                                <input type="text" id="passResetDocentId" name="passResetDocentId" readonly value="id" style="margin-bottom: 5px; width: 25px; padding: 2px; text-align: center; color: gray; border: 1px solid gray; background-color: lightgray;"/><br />
+                              </div>
+                              <div class="col-sm-4" style="margin-right: 2%;">Nieuw wachtwoord:</div>
+                              <div class="col-sm-7">
+                                <input required type="password" id="passResetDocentPass1" name="passResetDocentPass1" style="margin-bottom: 5px;"/><br />
+                              </div>
+                              <div class="col-sm-4" style="margin-right: 2%;">Wachtwoord opnieuw:</div>
+                              <div class="col-sm-7">
+                                <input required type="password" id="passResetDocentPass2" name="passResetDocentPass2" style="margin-bottom: 5px;"/><br />
+                                <br />
+                              </div>
+                            </div>
+                          <div class="modal-footer">
+                              <input type="submit" class="btn btn-primary" Name="DocentPassReset" value="Wijzig">
+                              <input type="submit" class="btn btn-secondary" data-dismiss="modal" value="Sluiten">
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
         <div id="docentEdit" class="modal fade" role="dialog">
             <form action="Docenten.php" method="post">
                 <div class="modal-dialog modal-lg">
@@ -236,6 +290,6 @@
     </div>
 </body>
 </html>
-<!-- 
+<!--
 DocentGebruikersnaam, DocentWachtwoord, DocentNaam, DocentAchternaam, LeerRichting
 -->
