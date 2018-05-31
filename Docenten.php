@@ -36,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4" style="color: white;">
+                <div class="col-4" id="TColour">
                     <?php
                     $con = mysqli_connect($host, $username, $password, $db_name);
                     if (isset($_POST["SaveModel"])) {
@@ -46,8 +46,9 @@
                         $DocentAchternaam = $_POST['docentAchternaam'];
                         $LeerRichting = $_POST['docentLeerrichting'];
                         $DocentEmail = $_POST['docentEmail'];
+                        $DocentenWachtwoordHash = password_hash($DocentWachtwoord, PASSWORD_DEFAULT);
 
-                        $sql = "INSERT INTO docenten(DocentGebruikersnaam, DocentWachtwoord, DocentNaam, DocentAchternaam, LeerRichting, DocentEmail) VALUES ('$DocentGebruikersnaam','$DocentWachtwoord','$DocentNaam','$DocentAchternaam','$LeerRichting','$DocentEmail')";
+                        $sql = "INSERT INTO docenten(DocentGebruikersnaam, DocentWachtwoord, DocentNaam, DocentAchternaam, LeerRichting, DocentEmail) VALUES ('$DocentGebruikersnaam','$DocentenWachtwoordHash','$DocentNaam','$DocentAchternaam','$LeerRichting','$DocentEmail')";
                         mysqli_query($con, $sql);
                     }
 
@@ -66,8 +67,9 @@
                         $DocentAchternaam = $_POST['docentEditAchternaam'];
                         $LeerRichting = $_POST['docentEditLeerrichting'];
                         $DocentEmail = $_POST['docentEditEmail'];
+                        $DocentenWachtwoordHash = password_hash($DocentWachtwoord, PASSWORD_DEFAULT);
 
-                        $sql = "UPDATE `docenten` SET DocentGebruikersNaam='$DocentGebruikersnaam',DocentWachtwoord='$DocentWachtwoord',DocentNaam='$DocentNaam',DocentAchternaam='$DocentAchternaam',LeerRichting='$LeerRichting',DocentEmail='$DocentEmail' WHERE  DocentId='$DocentId'";
+                        $sql = "UPDATE `docenten` SET DocentGebruikersNaam='$DocentGebruikersnaam',DocentWachtwoord='$DocentenWachtwoordHash',DocentNaam='$DocentNaam',DocentAchternaam='$DocentAchternaam',LeerRichting='$LeerRichting',DocentEmail='$DocentEmail' WHERE  DocentId='$DocentId'";
                         mysqli_query($con, $sql);
                     }
 
@@ -76,15 +78,15 @@
                     if ($result = mysqli_query($con, $query)) {
                         // output data of each row
                         while ($row = mysqli_fetch_row($result)) {
-                            echo "<i class='fa fa-user'></i>" . " " . $row["3"] . " " . $row["4"]
+                            echo "<i class='fa fa-user' style='text-shadow: none;'></i>" . " " . $row["3"] . " " . $row["4"]
                             . "<button style='float: right;' data-toggle='modal' data-target='#docentVerwijderen' onclick='Delete(" . $row['0'] . ", \"" . $row['3'] . " " . $row['4'] . "\")'>"
                             . "<i class='fa fa-trash fa-sm'></i></button>"
                             . "<button style='float: right;' data-toggle='modal' data-target='#docentEdit' onclick='Edit(" . $row['0'] . ", \"" . $row['1'] . "\", \"" . $row['2'] . "\", \"" . $row['3'] . "\", \"" . $row['4'] . "\", \"" . $row['5'] . "\", \"" . $row['6'] . "\")'>"
                             . "<i class='fa fa-edit fa-sm'></i></button>" . "<br>";
 
-                            echo "<i class='fa fa-envelope'></i>" . " " . $row["6"] . "<br>";
-                            echo "<i class='fa fa-briefcase'></i>" . " " . $row["5"] . "<br>";
-                            echo "<br>__________________<br><br>";
+                            echo "<i class='fa fa-envelope' style='text-shadow: none;'></i>" . " " . $row["6"] . "<br>";
+                            echo "<i class='fa fa-briefcase' style='text-shadow: none;'></i>" . " " . $row["5"] . "<br>";
+                            echo "<br><a style='text-shadow: none;'>__________________</a><br><br>";
                         }
                     } else {
                         echo "Geen docenten gevonden";
