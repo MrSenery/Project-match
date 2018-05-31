@@ -16,11 +16,11 @@ session_start();
                     <div class="col-sm-2" id="LightCol"><br>
                         <select name="leerRichtingOptie" style="width: 90%; margin-bottom: 6px;">
                             <option type="text" value="">-</option>
-                            <option type="text" value="1">Bouw</option>
-                            <option type="text" value="2">ICT</option>
-                            <option type="text" value="3">Kapster</option>
-                            <option type="text" value="4">Lab</option>
-                            <option type="text" value="5">Techniek</option>
+                            <option type="text" value="Bouw">Bouw</option>
+                            <option type="text" value="ICT">ICT</option>
+                            <option type="text" value="Kapster">Kapster</option>
+                            <option type="text" value="Lab">Lab</option>
+                            <option type="text" value="Techniek">Techniek</option>
                         </select>
                     </div>
                 </div>
@@ -189,11 +189,18 @@ session_start();
 <!--        nog aanpassing voor het orderen op leerrichting-->
         <div>
             <?php
-            $con = mysqli_connect($host, $username, $password, $db_name);
-            $query = "SELECT * FROM bedrijven";
-
             if(isset($_POST['match-go']))
             {
+              $con = mysqli_connect($host, $username, $password, $db_name);
+              $Leerrichting = $_POST['leerRichtingOptie'];
+
+              if($Leerrichting != "")
+              {
+                $query = "SELECT * FROM bedrijven WHERE LeerRichting='$Leerrichting'";
+              } else {
+                $query = "SELECT * FROM bedrijven";
+              }
+
               if ($queryResult = mysqli_query($con, $query)) {
                   $resultArray = array();
                   // Fetch one and one row
