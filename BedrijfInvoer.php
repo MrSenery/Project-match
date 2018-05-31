@@ -1,5 +1,22 @@
 <!DOCTYPE html>
-<?php include("HeaderNav.php"); ?>
+<?php
+session_start();
+if (isset($_SESSION['Loggedin']) && $_SESSION['Loggedin'] == true)
+{
+    if (isset($_SESSION['Admin']) && $_SESSION['Admin'] == "admin")
+    {
+        include("AdminNav.php");
+    }
+    else
+    {
+        include("DocentNav.php");
+    }
+}
+else
+{
+    header("location: index.php");
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">

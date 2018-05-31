@@ -1,6 +1,21 @@
 <!DOCTYPE html>
-<?php include("HeaderNav.php");
+<?php 
 session_start();
+if (isset($_SESSION['Loggedin']) && $_SESSION['Loggedin'] == true)
+{
+    if (isset($_SESSION['Admin']) && $_SESSION['Admin'] == "admin")
+    {
+        include("AdminNav.php");
+    }
+    else
+    {
+        include("DocentNav.php");
+    }
+}
+else
+{
+    include("HeaderNav.php");
+}
 ?>
 <html>
     <head>

@@ -1,4 +1,7 @@
 <?php
+session_start();
+session_destroy();
+session_start();
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -9,21 +12,20 @@ $query = "SELECT * FROM docenten";
 //login, via passwordhash check
 if (isset($_POST["login"]))
 {
-    $DocentGebruikersnaam = $_POST['username'];
-    $DocentWachtwoord = $_POST['password'];
+    $DocentGebruikersnaam = mysqli_real_escape_string($con, $_POST['username']);
+    $DocentWachtwoord = mysqli_real_escape_string($con, $_POST['password']);
     if ($queryResult = mysqli_query($con, $query))
     {
         while ($row = mysqli_fetch_row($queryResult))
         {
             if ($DocentGebruikersnaam === $row['1'])
             {
-//                if ($DocentWachtwoord === $row['2'])
                 if (password_verify($DocentWachtwoord, $row['2']))
                 {
                     echo 'ingelogd';
-                    session_start();
+                    $_SESSION['Loggedin'] = true;
                     $_SESSION['DocentNaam'] = $DocentGebruikersnaam;
-                    $_SESSION['DocentPass'] = $DocentWachtwoord;
+                    $_SESSION['Admin'] = $row['7'];
                     header("location: index.php");
                 }
                 else
@@ -37,6 +39,11 @@ if (isset($_POST["login"]))
             }
         }
     }
+}
+
+if (isset($_POST["Back"]))
+{
+    header("location: index.php");
 }
 ?>
 
@@ -163,6 +170,7 @@ if (isset($_POST["login"]))
                 <label for="password">Wachtwoord :</label>
                 <input type="password" id="password" name="password">
                 <div id="lower">
+                    <input id="BackButton" type="submit" name="Back" value="Terug" style="float: left; margin-left: 20px;">
                     <input id="LoginButton" type="submit" name="login" value="Login">
                 </div>
             </form>

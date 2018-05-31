@@ -9,7 +9,7 @@ $db_name = "matchmakers";
 ?>
 <div class="Header" name="Header">
     <form action="Login.php" method="post">
-    <input type="submit" id="Logout" href="Login.php" value="Uitloggen">
+    <input type="submit" id="Logout" href="LogIn.php" value="Naar Login">
     </form>
     <br>
     <div class="col-sm-12">
@@ -21,9 +21,6 @@ $db_name = "matchmakers";
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="index.php">Leerling-Match</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="BedrijfInvoer.php">Bedrijven</a>
             </li>
         </ul>
     </nav>
