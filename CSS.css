@@ -21,6 +21,11 @@ body {
     text-decoration: none;
 }
 
+#Logout:hover {
+    color: #02E4E4;
+    text-decoration: none;
+}
+
 #ProjectName {
     border: none;
     color: #00A3A3;
@@ -106,6 +111,7 @@ body {
     background: none;
     font-size: 24px;
     font-weight: bold;
+    cursor: -webkit-grab; cursor: grab;
 }
 
 #BoxInput {
