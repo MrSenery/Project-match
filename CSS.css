@@ -73,6 +73,14 @@ body {
 
 #RadioDiv {
     margin-right: 2%;
+    display: inline-block;
+    text-align: center;
+}
+
+#DropDown {
+    width: 90%;
+    position: relative;
+    bottom: 20px;
 }
 
 #DarkCol {

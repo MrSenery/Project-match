@@ -29,13 +29,14 @@ else
                 <div class="row">
                     <div class="col-sm-10" id="LightCol">Welke leerrichting volgt de cursist?</div>
                     <div class="col-sm-2" id="LightCol"><br>
-                        <select name="leerRichtingOptie" style="width: 90%; margin-bottom: 6px;">
+                        <select name="leerRichtingOptie" id="DropDown" style="margin-bottom: 6px;">
                             <option type="text" value="">-</option>
                             <option type="text" value="Bouw">Bouw</option>
                             <option type="text" value="ICT">ICT</option>
-                            <option type="text" value="Kapster">Kapster</option>
+                            <option type="text" value="Logistics">Logistics</option>
+<!--                            <option type="text" value="Kapster">Kapster</option>
                             <option type="text" value="Lab">Lab</option>
-                            <option type="text" value="Techniek">Techniek</option>
+                            <option type="text" value="Techniek">Techniek</option>-->
                         </select>
                     </div>
                 </div>
@@ -46,21 +47,24 @@ else
                     <div class="col-sm-7" id="DarkCol">
                         <div class="row">
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Klein</label><br>
-                                <input type="radio" name="Grote" value="0">
+                                <label>Klein
+                                <br><input type="radio" name="Grote" value="0">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Middel</label><br>
-                                <input type="radio" name="Grote" value="1">
+                                <label>Middel
+                                <br><input type="radio" name="Grote" value="1">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Groot</label><br>
-                                <input type="radio" name="Grote" value="2">
+                                <label>Groot
+                                <br><input type="radio" name="Grote" value="2">
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2" id="DarkCol"><br>
-                        <select required name="groteIsBelangrijkOptie" style="width: 90%">
+                        <select required name="groteIsBelangrijkOptie" id="DropDown">
                             <option type="text" value="">-</option>
                             <option type="text" value="1">Belangrijk</option>
                             <option type="text" value="2">Niet belangrijk</option>
@@ -75,29 +79,34 @@ else
                     <div class="col-sm-7" id="LightCol">
                         <div class="row">
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Zeer&nbsp;weinig</label><br>
-                                <input type="radio" name="Werkzaamheden" value="0">
+                                <label>Zeer&nbsp;weinig
+                                <br><input type="radio" name="Werkzaamheden" value="0">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Weinig</label><br>
-                                <input type="radio" name="Werkzaamheden" value="1">
+                                <label>Weinig
+                                <br><input type="radio" name="Werkzaamheden" value="1">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Normaal</label><br>
-                                <input type="radio" name="Werkzaamheden" value="2">
+                                <label>Normaal
+                                <br><input type="radio" name="Werkzaamheden" value="2">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Divers</label><br>
-                                <input type="radio" name="Werkzaamheden" value="3">
+                                <label>Divers
+                                <br><input type="radio" name="Werkzaamheden" value="3">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Zeer&nbsp;divers</label><br>
-                                <input type="radio" name="Werkzaamheden" value="4">
+                                <label>Zeer&nbsp;divers
+                                <br><input type="radio" name="Werkzaamheden" value="4">
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2" id="LightCol"><br>
-                        <select required name="WerkIsBelangrijkOptie" style="width: 90%">
+                        <select required name="WerkIsBelangrijkOptie" id="DropDown">
                             <option type="text" value="">-</option>
                             <option type="text" value="1">Belangrijk</option>
                             <option type="text" value="2">Niet belangrijk</option>
@@ -112,21 +121,24 @@ else
                     <div class="col-sm-7" id="DarkCol">
                         <div class="row">
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Slecht</label><br>
-                                <input type="radio" name="zelfstandigheid" value="0">
+                                <label>Slecht
+                                <br><input type="radio" name="zelfstandigheid" value="0">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Middel</label><br>
-                                <input type="radio" name="zelfstandigheid" value="1">
+                                <label>Middel
+                                <br><input type="radio" name="zelfstandigheid" value="1">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Goed</label><br>
-                                <input type="radio" name="zelfstandigheid" value="2">
+                                <label>Goed
+                                <br><input type="radio" name="zelfstandigheid" value="2">
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2" id="DarkCol"><br>
-                        <select required name="zelfIsBelangrijkOptie" style="width: 90%">
+                        <select required name="zelfIsBelangrijkOptie" id="DropDown">
                             <option type="text" value="">-</option>
                             <option type="text" value="1">Belangrijk</option>
                             <option type="text" value="2">Niet belangrijk</option>
@@ -141,17 +153,19 @@ else
                     <div class="col-sm-7" id="LightCol">
                         <div class="row">
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>N.v.t</label><br>
-                                <input type="radio" name="Profiel2" value="0">
+                                <label>N.v.t
+                                <br><input type="radio" name="Profiel2" value="0">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Geschikt</label><br>
-                                <input type="radio" name="Profiel2" value="1">
+                                <label>Geschikt
+                                <br><input type="radio" name="Profiel2" value="1">
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2" id="LightCol"><br>
-                        <select required name="P2IsBelangrijkOptie" style="width: 90%">
+                        <select required name="P2IsBelangrijkOptie" id="DropDown">
                             <option type="text" value="">-</option>
                             <option type="text" value="1">Belangrijk</option>
                             <option type="text" value="2">Niet belangrijk</option>
@@ -166,29 +180,34 @@ else
                     <div class="col-sm-7" id="DarkCol">
                         <div class="row">
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>N.v.t.</label><br>
-                                <input type="radio" name="Klantenomgang" value="0">
+                                <label>N.v.t.
+                                <br><input type="radio" name="Klantenomgang" value="0">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Slecht</label><br>
-                                <input type="radio" name="Klantenomgang" value="1">
+                                <label>Slecht
+                                <br><input type="radio" name="Klantenomgang" value="1">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Matig</label><br>
-                                <input type="radio" name="Klantenomgang" value="2">
+                                <label>Matig
+                                <br><input type="radio" name="Klantenomgang" value="2">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Normaal</label><br>
-                                <input type="radio" name="Klantenomgang" value="3">
+                                <label>Normaal
+                                <br><input type="radio" name="Klantenomgang" value="3">
+                                </label>
                             </div>
                             <div class="col-sm-2" id="RadioDiv">
-                                <label>Goed</label><br>
-                                <input type="radio" name="Klantenomgang" value="3">
+                                <label>Goed
+                                <br><input type="radio" name="Klantenomgang" value="3">
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2" id="DarkCol"><br>
-                        <select required name="klantIsBelangrijkOptie" style="width: 90%">
+                        <select required name="klantIsBelangrijkOptie" id="DropDown">
                             <option type="text" value="">-</option>
                             <option type="text" value="1">Belangrijk</option>
                             <option type="text" value="2">Niet belangrijk</option>

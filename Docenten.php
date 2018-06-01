@@ -25,10 +25,9 @@ else
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        function Edit(DocentId, DocentGebruikersnaam, DocentWachtwoord, DocentNaam, DocentAchternaam, LeerRichting, DocentEmail) {
+        function Edit(DocentId, DocentGebruikersnaam, DocentNaam, DocentAchternaam, LeerRichting, DocentEmail) {
             document.getElementById("docentEditId").setAttribute("value", DocentId);
             document.getElementById("docentEditGebruikersnaam").setAttribute("value", DocentGebruikersnaam);
-            document.getElementById("docentEditWachtwoord").setAttribute("value", DocentWachtwoord);
             document.getElementById("docentEditNaam").setAttribute("value", DocentNaam);
             document.getElementById("docentEditAchternaam").setAttribute("value", DocentAchternaam);
             document.getElementById("docentEditLeerrichting").setAttribute("value", LeerRichting);
@@ -51,8 +50,6 @@ else
     <body>
         <div class="col-12" style="background-color: #93C0C0;">
             <div class="col-12" style="text-align: center;">
-                <input name="Search" style="width: 30%; margin: 3px;">
-                <input type="submit" name="Zoek" value="Zoek"/>
                 <button data-toggle='modal' data-target='#docentToevoegen'><i class="fa fa-plus-circle fa-sm"></i></button>
             </div>
             <div class="row">
@@ -97,14 +94,12 @@ else
                     if (isset($_POST["EditModel"])) {
                         $DocentId = $_POST['docentEditId'];
                         $DocentGebruikersnaam = $_POST['docentEditGebruikersaam'];
-                        $DocentWachtwoord = $_POST['docentEditWachtwoord'];
                         $DocentNaam = $_POST['docentEditNaam'];
                         $DocentAchternaam = $_POST['docentEditAchternaam'];
                         $LeerRichting = $_POST['docentEditLeerrichting'];
                         $DocentEmail = $_POST['docentEditEmail'];
-                        $DocentenWachtwoordHash = password_hash($DocentWachtwoord, PASSWORD_DEFAULT);
 
-                        $sql = "UPDATE `docenten` SET DocentGebruikersNaam='$DocentGebruikersnaam',DocentWachtwoord='$DocentenWachtwoordHash',DocentNaam='$DocentNaam',DocentAchternaam='$DocentAchternaam',LeerRichting='$LeerRichting',DocentEmail='$DocentEmail' WHERE  DocentId='$DocentId'";
+                        $sql = "UPDATE `docenten` SET DocentGebruikersNaam='$DocentGebruikersnaam',DocentNaam='$DocentNaam',DocentAchternaam='$DocentAchternaam',LeerRichting='$LeerRichting',DocentEmail='$DocentEmail' WHERE  DocentId='$DocentId'";
                         mysqli_query($con, $sql);
                     }
 
@@ -117,7 +112,7 @@ else
                             . "<button style='float: right;' data-toggle='modal' data-target='#docentPassReset' onclick='PassReset(" . $row['0'] . ")'>Pass reset</button>"
                             . "<button style='float: right;' data-toggle='modal' data-target='#docentVerwijderen' onclick='Delete(" . $row['0'] . ", \"" . $row['3'] . " " . $row['4'] . "\")'>"
                             . "<i class='fa fa-trash fa-sm'></i></button>"
-                            . "<button style='float: right;' data-toggle='modal' data-target='#docentEdit' onclick='Edit(" . $row['0'] . ", \"" . $row['1'] . "\", \"" . $row['2'] . "\", \"" . $row['3'] . "\", \"" . $row['4'] . "\", \"" . $row['5'] . "\", \"" . $row['6'] . "\")'>"
+                            . "<button style='float: right;' data-toggle='modal' data-target='#docentEdit' onclick='Edit(" . $row['0'] . ", \"" . $row['1'] . "\", \"" . $row['3'] . "\", \"" . $row['4'] . "\", \"" . $row['5'] . "\", \"" . $row['6'] . "\")'>"
                             . "<i class='fa fa-edit fa-sm'></i></button>" . "<br>";
 
                             echo "<i class='fa fa-envelope' style='text-shadow: none;'></i>" . " " . $row["6"] . "<br>";
@@ -263,11 +258,6 @@ else
                                 <div class="col-sm-4" style="margin-right: 2%;">Gebruikersnaam:</div>
                                 <div class="col-sm-7">
                                     <input required type="values" name="docentEditGebruikersaam" id="docentEditGebruikersnaam" style="width: 70%;">
-                                </div>
-                                <br />
-                                <div class="col-sm-4" style="margin-right: 2%;">Wachtwoord:</div>
-                                <div class="col-sm-7">
-                                    <input required type="password" name="docentEditWachtwoord" id="docentEditWachtwoord" style="width: 70%;">
                                 </div>
                                 <br />
                                 <div class="col-sm-4" style="margin-right: 2%;">Naam van docent:</div>
